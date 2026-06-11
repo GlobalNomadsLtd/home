@@ -10,15 +10,14 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fdfdfd; /* Clean, slightly off-white background */
+            background-color: #fdfdfd;
             color: #1a0f3c;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            align-items: center;
         }
 
-        /* Banner Header - Reduced by 50% */
+        /* Banner Header - Maintained at 50% */
         header {
             width: 100%;
             text-align: center;
@@ -26,30 +25,56 @@
         }
 
         .header-banner {
-            max-width: 50%; /* Size reduced by half */
+            max-width: 50%;
             height: auto;
             display: block;
             margin: 0 auto;
         }
 
-        /* Main Content Container */
+        /* Main Layout - 3 Column Setup for Symmetrical Images */
         main {
             width: 100%;
-            max-width: 900px;
+            max-width: 1400px; /* Widened to fit the side images comfortably */
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
             box-sizing: border-box;
+            flex: 1;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        /* Side Image Containers - Centralized in their space */
+        .flank {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .side-image {
+            width: 100%;
+            max-width: 350px; /* Controls how large the side images get */
+            height: auto;
+            display: block;
+        }
+
+        .image-right {
+            transform: scaleX(-1); /* Flips the right image for perfect symmetry */
+        }
+
+        /* Center Text Content */
+        .center-text {
+            flex: 1.5; /* Gives the text slightly more room than the images */
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1rem 2rem 4rem;
-        }
-
-        /* Centralized Laptop - Increased by 100% (From 250px to 500px) */
-        .central-laptop {
-            width: 500px; 
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto 3rem auto;
+            text-align: center;
         }
 
         /* Prominent Tagline - One Line, Same Color */
@@ -58,26 +83,25 @@
             font-weight: 700;
             color: #0ea5e9; /* Unified light blue color */
             margin-bottom: 2.5rem;
-            text-align: center;
             white-space: nowrap; /* Forces text to stay on one line */
             letter-spacing: -0.5px;
         }
 
-        /* Address Formatting: Directly on background, left-aligned text in a centered block */
+        /* Address Formatting */
         .address-container {
             display: inline-block;
-            text-align: left;
+            text-align: left; /* Keeps the text aligned left within its center block */
             font-size: 1.2rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
 
         .blue-line {
-            color: #0ea5e9; /* Light blue */
+            color: #0ea5e9;
         }
 
         .orange-line {
-            color: #ea580c; /* Orange */
+            color: #ea580c;
         }
 
         /* Clickable Surround for Email */
@@ -86,7 +110,7 @@
             padding: 12px 28px;
             margin: 1rem 0 2rem;
             background-color: transparent;
-            border: 2px solid #ea580c; /* Orange surround */
+            border: 2px solid #ea580c;
             border-radius: 8px;
             color: #ea580c;
             text-decoration: none;
@@ -105,20 +129,34 @@
         .company-number {
             font-size: 1rem;
             color: #6b7280;
-            text-align: center;
         }
 
         /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .tagline {
+                font-size: 1.8rem;
+            }
+            .side-image {
+                max-width: 250px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column; /* Stacks everything vertically on phones */
+            }
             .tagline {
                 font-size: 1.5rem;
-                white-space: normal; /* Allows tagline to stack on small phones to prevent screen breaking */
+                white-space: normal; /* Allows tagline to wrap on small screens so it doesn't break */
             }
             .header-banner {
-                max-width: 80%; /* Ensures banner doesn't get too tiny on mobile */
+                max-width: 80%;
             }
-            .central-laptop {
-                width: 90%;
+            .flank {
+                margin: 2rem 0; /* Adds spacing when stacked */
+            }
+            .image-right {
+                transform: none; /* Removes flip on mobile stacking */
             }
         }
     </style>
@@ -130,23 +168,36 @@
     </header>
 
     <main>
-        <img src="retro-laptop.png" alt="Retro Laptop" class="central-laptop">
+        <div class="content-wrapper">
+            
+            <div class="flank">
+                <img src="retro-label.png" alt="Retro Label Side" class="side-image">
+            </div>
 
-        <div class="tagline">
-            Creating and Reinventing Apps for All!
-        </div>
+            <div class="center-text">
+                <div class="tagline">
+                    Creating and Reinventing Apps for All!
+                </div>
 
-        <div class="address-container">
-            <span class="blue-line">167-169, Great Portland Street</span><br>
-            <span class="orange-line">5th Floor</span><br>
-            <span class="blue-line">London,</span> <span class="orange-line">W1W 5PF.</span><br>
-            <span class="blue-line">UK</span>
-        </div>
-        
-        <a href="mailto:info@globalnomads.co.uk" class="email-button">info@globalnomads.co.uk</a>
-        
-        <div class="company-number">
-            Companies House Number: 13058694
+                <div class="address-container">
+                    <span class="blue-line">167-169, Great Portland Street</span><br>
+                    <span class="orange-line">5th Floor</span><br>
+                    <span class="blue-line">London,</span><br>
+                    <span class="orange-line">W1W 5PF.</span><br>
+                    <span class="blue-line">UK</span>
+                </div>
+                
+                <a href="mailto:info@globalnomads.co.uk" class="email-button">info@globalnomads.co.uk</a>
+                
+                <div class="company-number">
+                    Companies House Number: 13058694
+                </div>
+            </div>
+
+            <div class="flank">
+                <img src="retro-label.png" alt="Retro Label Side" class="side-image image-right">
+            </div>
+
         </div>
     </main>
 
