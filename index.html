@@ -5,153 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Nomads Ltd | Creating and Reinventing Apps for All!</title>
     <style>
-        /* Retro Grid Background and General Body Styles */
+        /* Base Styles - Clean solid background */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* White base with purple grid and glowing edges to match assets */
-            background: 
-                linear-gradient(90deg, rgba(124, 241, 244, 0.1) 1px, transparent 1px),
-                linear-gradient(rgba(124, 241, 244, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26, 15, 60, 0.15) 1px, transparent 1px),
-                linear-gradient(rgba(26, 15, 60, 0.15) 1px, transparent 1px),
-                #ffffff;
-            background-size: 20px 20px, 20px 20px, 80px 80px, 80px 80px;
-            color: #1a0f3c; /* Deep purple text for general readability */
+            background-color: #fdfdfd; /* Clean, slightly off-white background */
+            color: #1a0f3c;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            overflow-x: hidden;
+            align-items: center;
         }
 
-        /* Banner Header */
+        /* Banner Header - Reduced by 50% */
         header {
             width: 100%;
-            background-color: transparent;
             text-align: center;
-            padding: 2rem 0;
-            position: relative;
+            padding: 3rem 0 1rem;
         }
 
         .header-banner {
+            max-width: 50%; /* Size reduced by half */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Main Content Container */
+        main {
+            width: 100%;
+            max-width: 900px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 2rem 4rem;
+        }
+
+        /* Centralized Laptop - Increased by 100% (From 250px to 500px) */
+        .central-laptop {
+            width: 500px; 
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 3rem auto;
         }
 
-        /* Main Content Container - Encased by Symmetrical Laptops */
-        main {
-            flex: 1;
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 4rem 10% 2rem; /* Give space for the laptops */
-        }
-
-        /* Symmetrical Laptop Assets */
-        .laptop-flank {
-            width: 250px; /* Adjust size based on design */
-            height: auto;
-            display: block;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .laptop-left {
-            left: 2rem;
-        }
-
-        .laptop-right {
-            right: 2rem;
-            transform: translateY(-50%) scaleX(-1); /* Symmetrical reflection */
-        }
-
-        /* Main Tagline Content */
-        .main-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            z-index: 2; /* Keep above grid */
-        }
-
-        /* Prominent Tagline with Color Mix */
+        /* Prominent Tagline - One Line, Same Color */
         .tagline {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 3rem;
-            text-shadow: 0 0 10px rgba(124, 241, 244, 0.5);
+            color: #0ea5e9; /* Unified light blue color */
+            margin-bottom: 2.5rem;
+            text-align: center;
+            white-space: nowrap; /* Forces text to stay on one line */
             letter-spacing: -0.5px;
         }
 
-        /* Mix light blue and orange */
-        .tagline .blue-text {
-            color: #7cf1f4; /* Glowing cyan */
-        }
-
-        .tagline .orange-text {
-            color: #ff8c00; /* Deep orange */
-        }
-
-        /* Address Formatting: Centered container, left-aligned writing */
+        /* Address Formatting: Directly on background, left-aligned text in a centered block */
         .address-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            z-index: 2;
-        }
-
-        .address-content {
+            display: inline-block;
             text-align: left;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.8;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2.5rem 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blue-line {
+            color: #0ea5e9; /* Light blue */
+        }
+
+        .orange-line {
+            color: #ea580c; /* Orange */
+        }
+
+        /* Clickable Surround for Email */
+        .email-button {
+            display: inline-block;
+            padding: 12px 28px;
+            margin: 1rem 0 2rem;
+            background-color: transparent;
+            border: 2px solid #ea580c; /* Orange surround */
             border-radius: 8px;
-            border-left: 3px solid #ff8c00; /* Orange border highlight */
-            box-shadow: 0 4px 20px rgba(26, 15, 60, 0.2);
-        }
-
-        /* Address content specific color changes */
-        .address-content strong {
-            color: #1a0f3c; /* Keep as deep purple for strong visual hierarchy */
-            font-size: 1.3rem;
-        }
-
-        /* Change primary address lines to light blue */
-        .address-content .blue-line {
-            color: #3b82f6; /* A slightly darker light blue for better readability on white */
-        }
-
-        /* Change other details to orange */
-        .address-content .orange-line {
-            color: #ea580c; /* Rich orange for readability */
-        }
-
-        .address-content a {
-            color: #ea580c; /* Orange links */
+            color: #ea580c;
             text-decoration: none;
-            transition: color 0.2s ease, text-shadow 0.2s ease;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
         }
 
-        .address-content a:hover {
-            color: #3b82f6; /* Blue hover */
-            text-shadow: 0 0 8px rgba(124, 241, 244, 0.6);
+        .email-button:hover {
+            background-color: #ea580c;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
         }
 
+        /* Company Number */
         .company-number {
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #6b7280;
+            text-align: center;
         }
 
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .tagline {
+                font-size: 1.5rem;
+                white-space: normal; /* Allows tagline to stack on small phones to prevent screen breaking */
+            }
+            .header-banner {
+                max-width: 80%; /* Ensures banner doesn't get too tiny on mobile */
+            }
+            .central-laptop {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -161,31 +130,23 @@
     </header>
 
     <main>
-        <img src="retro-laptop.png" alt="Retro Laptop Flank" class="laptop-flank laptop-left">
-        <img src="retro-laptop.png" alt="Retro Laptop Flank" class="laptop-flank laptop-right">
+        <img src="retro-laptop.png" alt="Retro Laptop" class="central-laptop">
 
-        <div class="main-content">
-            <div class="tagline">
-                <span class="blue-text">Creating and</span><br>
-                <span class="blue-text">Reinventing Apps</span><br>
-                <span class="orange-text">for All!</span>
-            </div>
+        <div class="tagline">
+            Creating and Reinventing Apps for All!
+        </div>
 
-            <div class="address-container">
-                <div class="address-content">
-                    <span class="blue-line">167-169, Great Portland Street</span><br>
-                    <span class="orange-line">5th Floor</span><br>
-                    <span class="blue-line">London,</span><br>
-                    <span class="blue-line">W1W 5PF.</span><br>
-                    <span class="blue-line">UK</span><br><br>
-                    
-                    <a href="mailto:info@globalnomads.co.uk">info@globalnomads.co.uk</a><br>
-                    
-                    <div class="company-number">
-                        Companies House Number: 13058694
-                    </div>
-                </div>
-            </div>
+        <div class="address-container">
+            <span class="blue-line">167-169, Great Portland Street</span><br>
+            <span class="orange-line">5th Floor</span><br>
+            <span class="blue-line">London,</span> <span class="orange-line">W1W 5PF.</span><br>
+            <span class="blue-line">UK</span>
+        </div>
+        
+        <a href="mailto:info@globalnomads.co.uk" class="email-button">info@globalnomads.co.uk</a>
+        
+        <div class="company-number">
+            Companies House Number: 13058694
         </div>
     </main>
 
